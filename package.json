@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "sanity:dev": "sanity dev --cwd sanity",
+    "sanity:build": "sanity build --cwd sanity"
   },
   "dependencies": {
     "@portabletext/types": "^2.0.15",
@@ -25,6 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
+    "sanity": "^4.9.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
