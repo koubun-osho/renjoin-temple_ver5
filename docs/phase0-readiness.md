@@ -1,19 +1,18 @@
 # Phase 0 Readiness Checklist
 
 ## Account & Access Status
-- **Sanity**: account setup required (owner to provide project ID + read token).
-- **Vercel**: account setup required (owner to create project after repository is pushed).
-- **GitHub**: repository to be linked after initial commit; no remote configured yet.
+- **Sanity**: project IDとリードトークンを受領済み（`.env.local`に安全に保存）。
+- **Vercel**: チーム/プロジェクト作成済み。環境変数は`.env.local`と同値で準備完了。
+- **GitHub**: ローカルリポジトリを`main`ブランチで初期化済み。リモートURL登録のみオーナー確認待ち。
 
 ## Environment Variable Handling
-- Store all secrets in `.env.local` (local only) and Vercel project settings; never commit secrets.
-- Share credential values over secure channel; rotate tokens immediately if exposure is suspected.
-- Limit Sanity tokens to read-only for the frontend; maintain write tokens exclusively within Studio.
-- Use placeholder keys (`TODO_`) in committed config files and document required variables in `docs/env-reference.md`.
+- 機密情報は`.env.local`とVercelの環境変数に格納し、リポジトリへは未コミットで管理。
+- 認証情報は安全なチャネルで共有済み。漏洩時は即時ローテーションする運用体制を確認。
+- フロントエンドではリードオンリートークンのみ利用し、更新系はStudio内で完結させる方針を維持。
+- コード内は`TODO_`プレースホルダーを保持し、必要なキー一覧を`docs/env-reference.md`に記載済み。
 
-## Next Actions Before Coding
-1. Collect confirmation that Sanity/Vercel/GitHub accounts can be provisioned this week.
-2. Prepare `.env.local` template with placeholder keys once credentials arrive.
-3. Configure Vercel environment variables before enabling automatic deployments.
-4. Verify `.gitignore` covers `.env*` and other sensitive artefacts (checked into repo).
+## Phase 0 Completion Notes
+- 主要アカウント（Sanity/Vercel/GitHub）と環境変数の準備が整ったため、Phase 1のCMSスキーマ作業へ進行可能。
+- GitHubのリモートURLはオーナー側で確定次第`git remote add origin <URL>`を実行する。
+- 継続して`.env*`や`.vercel`等の機密ファイルがコミット対象にならないことを定期確認する。
 

@@ -61,6 +61,48 @@ export const news = defineType({
         },
       ],
     }),
+    defineField({
+      name: "ogTitle",
+      title: "OGPタイトル上書き",
+      type: "string",
+      validation: (rule) => rule.max(120),
+    }),
+    defineField({
+      name: "ogDescription",
+      title: "OGP説明文",
+      type: "text",
+      rows: 3,
+      validation: (rule) => rule.max(200),
+    }),
+    defineField({
+      name: "ogImage",
+      title: "OGP専用画像",
+      type: "image",
+      options: { hotspot: true },
+      fields: [
+        {
+          name: "alt",
+          type: "string",
+          title: "代替テキスト",
+          validation: (rule) => rule.required().max(120),
+        },
+      ],
+    }),
+    defineField({
+      name: "ogTheme",
+      title: "OGPテンプレート",
+      type: "string",
+      options: {
+        list: [
+          { title: "自動", value: "auto" },
+          { title: "ブログ", value: "blog" },
+          { title: "お知らせ", value: "news" },
+          { title: "固定ページ", value: "page" },
+        ],
+        layout: "radio",
+      },
+      initialValue: "news",
+    }),
   ],
   preview: {
     select: {

@@ -7,16 +7,19 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "sanity:dev": "sanity dev --cwd sanity",
-    "sanity:build": "sanity build --cwd sanity"
+    "sanity:dev": "sanity dev",
+    "sanity:build": "sanity build"
   },
   "dependencies": {
+    "@portabletext/react": "^4.0.3",
     "@portabletext/types": "^2.0.15",
+    "@sanity/image-url": "^1.2.0",
     "clsx": "^2.1.1",
     "next": "15.5.3",
     "next-sanity": "^11.1.1",
     "react": "19.1.0",
     "react-dom": "19.1.0",
+    "styled-components": "^6.1.19",
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
